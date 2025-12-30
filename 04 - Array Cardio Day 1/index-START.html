@@ -37,29 +37,69 @@
     ];
     
     // Array.prototype.filter()
-    // 1. Filter the list of inventors for those who were born in the 1500's
+    // // 1. Filter the list of inventors for those who were born in the 1500's
+    // const inventors1500s = inventors.filter(function(inventor){
+    //   if(inventor.year < 1600 && inventor.year >= 1500){
+    //     return true; //keep a value with the filter
+    //   }
+    // })
+    // console.table(inventors1500s); // better view for objects
+
+    //TIGHTER VERSION:
+    //     const inventors1500s = inventors.filter(inventor => inventor.year < 1600 && inventor.year >= 1500)
+    // console.table(inventors1500s); // better view for objects
 
     // Array.prototype.map()
     // 2. Give us an array of the inventors first and last names
+    // const inventorsFullNames = inventors.map(inventor => inventor.first + " " + inventor.last)
+    // console.table(inventorsFullNames)
+
+    // //BACKTICK OPTION:
+    // const inventorsFullNames2 = inventors.map(inventor => `${inventor.first} ${inventor.last}`)
+    // console.table(inventorsFullNames2)
+
 
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
+    // const inventorsSortedByAge = inventors.sort((a,b) => a.year - b.year);
+    // console.table(inventorsSortedByAge);
+
+    // //OPTION 2: ternary operator (?)
+    // const inventorsSortedByAge2 = inventors.sort((a,b) => a.year > b.year ? 1 : -1);
+    // console.table(inventorsSortedByAge2);
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
+    // const timeAlive = inventors.reduce((total,inventor) => {
+    //   return total + (inventor.passed - inventor.year);
+    // }, 0) //, 0 at end initializes value of total, to avoid weirdness/undefined values
+    // console.log(timeAlive);
 
     // 5. Sort the inventors by years lived
+    // const inventorsSortedByLifespan = inventors.sort((a,b) => (a.passed - a.year) - (b.passed - b.year));
+    // const inventorsSortedByLifespan2 = inventorsSortedByLifespan.map(inventor => inventor.lifespan = inventor.passed - inventor.year);
+
+    // console.table(inventorsSortedByLifespan);
+    // console.table(inventorsSortedByLifespan2);  //ONLY RETURNS THE LIFESPAN PART; BUT, BECAUSE ARRAYS ARE MODIFIED IN PLACE
+    //                                             // ORIGINAL ARRAY GETS THE NEW COLUMN.  THUS, WE COULD HAVE JUST RUN THE MAP FUNCTION
+                                                // INSTEAD OF RETURNING A NEW ARRAY
 
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
-
+    // DO THIS IN CONSOLE ON WIKIPEDIA PAGE DIRECTLY
+    // const category = document.querySelector('.mw-category')
+    // const links = Array.from(category.querySelectorAll('a'));
+    // const de = links
+    //                 .map(link => link.textContent)
+    //                 .filter(streetName => streetName.includes(" de "));
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
 
+
     // 8. Reduce Exercise
     // Sum up the instances of each of these
-    const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+    const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck'];
 
   </script>
 </body>
